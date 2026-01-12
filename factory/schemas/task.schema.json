@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Factory Task",
+  "description": "Minimal schema for a task assigned to a sub-agent in Phase 1",
+
+  "type": "object",
+
+  "required": [
+    "task_id",
+    "experiment_id",
+    "agent_role",
+    "input_payload",
+    "status",
+    "created_at"
+  ],
+
+  "properties": {
+    "task_id": {
+      "type": "string",
+      "description": "Unique identifier for this task"
+    },
+
+    "experiment_id": {
+      "type": "string",
+      "description": "ID of the experiment this task belongs to"
+    },
+
+    "agent_role": {
+      "type": "string",
+      "enum": [
+        "offer_agent",
+        "distribution_agent"
+      ],
+      "description": "Which sub-agent is responsible for this task"
+    },
+
+    "input_payload": {
+      "type": "object",
+      "description": "Structured input data provided to the agent"
+    },
+
+    "status": {
+      "type": "string",
+      "enum": [
+        "open",
+        "done"
+      ],
+      "description": "Current status of the task"
+    },
+
+    "output_payload": {
+      "type": "object",
+      "description": "Structured output returned by the agent",
+      "default": {}
+    },
+
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO timestamp when the task was created"
+    }
+  }
+}
