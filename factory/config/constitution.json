@@ -1,0 +1,48 @@
+{
+  "phase": "phase_1_learning",
+
+  "human_time_budget_minutes_per_day": 15,
+
+  "factories": {
+    "max_active_factories": 1,
+    "max_experiments_per_factory_per_day": 1,
+    "max_total_experiments_per_factory": 10
+  },
+
+  "experiments": {
+    "default_timebox_hours": 72,
+    "kill_conditions": {
+      "no_signal_within_hours": 72,
+      "no_payment_intent": true
+    }
+  },
+
+  "approvals_required_for": [
+    "any_paid_spend",
+    "any_mass_outreach",
+    "any_public_claim_or_promise",
+    "any_pricing_commitment"
+  ],
+
+  "allowed_actions_phase_1": [
+    "manual_posting",
+    "manual_outreach",
+    "manual_data_entry",
+    "prompt_execution_in_ai_studio"
+  ],
+
+  "forbidden_actions_phase_1": [
+    "automated_mass_outreach",
+    "automated_social_posting",
+    "paid_advertising",
+    "api_based_llm_execution"
+  ],
+
+  "primary_success_metric": "payment_or_strong_payment_intent",
+
+  "secondary_metrics": [
+    "high_intent_reply",
+    "email_signup",
+    "link_click"
+  ]
+}
