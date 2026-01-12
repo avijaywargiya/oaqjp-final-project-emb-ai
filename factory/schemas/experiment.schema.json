@@ -1,0 +1,101 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Factory Experiment",
+  "description": "Minimal schema for a single experiment within a factory (Phase 1)",
+
+  "type": "object",
+
+  "required": [
+    "experiment_id",
+    "factory_id",
+    "hypothesis",
+    "offer",
+    "price",
+    "channel_plan",
+    "status",
+    "success_criteria",
+    "timebox_end",
+    "decision",
+    "created_at"
+  ],
+
+  "properties": {
+    "experiment_id": {
+      "type": "string",
+      "description": "Unique identifier for this experiment"
+    },
+
+    "factory_id": {
+      "type": "string",
+      "description": "ID of the factory this experiment belongs to"
+    },
+
+    "hypothesis": {
+      "type": "string",
+      "description": "Testable statement about who will pay for what and why"
+    },
+
+    "offer": {
+      "type": "string",
+      "description": "What is being offered to the user"
+    },
+
+    "price": {
+      "type": "string",
+      "description": "Price point for the offer (string to allow formats like '$19', 'free', 'TBD')"
+    },
+
+    "channel_plan": {
+      "type": "string",
+      "description": "High-level description of how the offer will be distributed"
+    },
+
+    "status": {
+      "type": "string",
+      "enum": [
+        "discover",
+        "design",
+        "execute",
+        "measure",
+        "decide",
+        "archived"
+      ],
+      "description": "Current lifecycle stage of the experiment"
+    },
+
+    "success_criteria": {
+      "type": "string",
+      "description": "What outcome would qualify this experiment as a success"
+    },
+
+    "timebox_end": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO timestamp after which the experiment must be decided"
+    },
+
+    "results_summary": {
+      "type": "string",
+      "description": "Short summary of what happened during the experiment",
+      "default": ""
+    },
+
+    "decision": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "iterate",
+        "scale",
+        "kill"
+      ],
+      "description": "Final decision once the experiment concludes",
+      "default": "pending"
+    },
+
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO timestamp when the experiment was created"
+    }
+  }
+}
